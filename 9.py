@@ -24,7 +24,7 @@ class AVLTree:
         elif student.enrollment_id > root.student.enrollment_id:
             root.right = self.insert(root.right, student)
         else:
-            print(f"❌ Duplicate Enrollment ID {student.enrollment_id} not allowed.")
+            print(f" Duplicate Enrollment ID {student.enrollment_id} not allowed.")
             return root
 
         root.height = 1 + max(self.get_height(root.left), self.get_height(root.right))
@@ -122,36 +122,37 @@ def main():
                 course = input("Enter Course Name: ").strip()
                 student = Student(eid, name, course)
                 root = avl.insert(root, student)
-                print("✅ Student added successfully.")
+                print(" Student added successfully.")
             except ValueError:
-                print("❌ Invalid input. Enrollment ID must be an integer.")
+                print(" Invalid input. Enrollment ID must be an integer.")
         elif choice == '2':
             try:
                 eid = int(input("Enter Enrollment ID to search: "))
                 student = avl.search_by_id(root, eid)
                 if student:
-                    print("✅ Student Found:\n", student)
+                    print(" Student Found:\n", student)
                 else:
-                    print("❌ Student not found.")
+                    print(" Student not found.")
             except ValueError:
-                print("❌ Invalid input. Enrollment ID must be an integer.")
+                print(" Invalid input. Enrollment ID must be an integer.")
         elif choice == '3':
             name = input("Enter name to search: ").strip()
             results = avl.search_by_name(root, name)
             if results:
-                print("✅ Students Found:")
+                print(" Students Found:")
                 for s in results:
                     print(s)
             else:
-                print("❌ No student found with that name.")
+                print(" No student found with that name.")
         elif choice == '4':
-            print("\n📘 List of Enrolled Students (sorted by ID):")
+            print("\n List of Enrolled Students (sorted by ID):")
             avl.inorder(root)
         elif choice == '5':
-            print("👋 Exiting program.")
+            print(" Exiting program.")
             break
         else:
-            print("❌ Invalid choice. Please select from 1 to 5.")
+            print(" Invalid choice. Please select from 1 to 5.")
 
 if __name__ == "__main__":
     main()
+
